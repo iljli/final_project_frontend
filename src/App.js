@@ -8,6 +8,7 @@ import Contacts from "./components/contact";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import UserManagement from "./components/UserManagement";
+import ListSensors from "./components/ListSensors";
 
 function App() {
   return (
@@ -19,12 +20,16 @@ function App() {
           <Landing />
         </Route>
 
-        <Route exact path="/userManagment">
+        <Route exact path="/userManagement">
           <UserManagement />
         </Route>
 
         <Route exact path="/contacts">
           <Contacts />
+        </Route>
+
+        <Route exact path="/listSensors">
+          <ListSensors />
         </Route>
       </Switch>
 
