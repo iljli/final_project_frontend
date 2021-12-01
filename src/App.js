@@ -8,6 +8,8 @@ import Contacts from "./components/contact";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Login from "./components/login";
+import UserManagement from "./components/UserManagement";
+
 
 function App() {
   return (
@@ -24,7 +26,7 @@ function App() {
         </Route>
 
         <Route exact path="/userManagment">
-          <h1>Nothing to see there for now</h1>
+          <UserManagement />
         </Route>
 
         <Route exact path="/contacts">
