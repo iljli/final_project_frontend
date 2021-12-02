@@ -1,6 +1,8 @@
 import { React, useState, useEffect } from 'react';
 import M from "materialize-css";
 // import { TextInput, Button } from 'react-materialize';
+import { useUserContext } from "../context/UserContext";
+import { NavLink } from 'react-router-dom';
 
 /* ToDo:
     - activate button only if username and e-mail is provided
@@ -20,10 +22,14 @@ const userTemplate = {
     username: "tomuser"
 }
 
+
+
 const ListSensors = props => {
+    const { userData: loggedInUser } = useUserContext();
+    const [userData, setUserData] = useState(loggedInUser); // ToDo: prepared for global variable that contains the username
     const [listOfSensors, setListOfSensors] = useState();
     const [selectedSensor, setSelectedSensor] = useState();
-    const [userData, setUserData] = useState(userTemplate); // ToDo: prepared for global variable that contains the username
+
 
     const errorHandler = (error) => {
         console.log(`Error Message: ${error.message}`); // does not actual handle the error
@@ -31,7 +37,6 @@ const ListSensors = props => {
 
     const getListOfSensors = (event) => {
 
-        // const apiUrl = "http://localhost:3000/sensordata/list_sensors/";
         const apiUrl = "http://localhost:3000/users/list_userdata/";
 
         const options = {
@@ -62,17 +67,16 @@ const ListSensors = props => {
     }
 
 
-    useEffect(getListOfSensors, [selectedSensor]);
+    useEffect(getListOfSensors, [selectedSensor, loggedInUser]);
 
 
     return (
         <div>
             <div class="row">
-
                 <div class="collection with-header  col s6">
                     <li class="collection-header"><h4>Your Sensors</h4></li>
                     {listOfSensors && listOfSensors.map((sensor, index) =>
-                        <a href="#!" class="collection-item" key={index} onMouseOver={() => handleSelectSensor({ sensor })} >{sensor?.name} - {sensor.location?.loc_name}</a>
+                        <a href="#!" class="collection-item" key={index} onClick={() => handleSelectSensor({ sensor })} >{sensor?.name} - {sensor.location?.loc_name}</a>
                     )}
                 </div>
 
@@ -91,7 +95,7 @@ const ListSensors = props => {
                             </p>
                         </div>
                         <div class="card-action">
-                            <a href="#">Graph</a>
+                            <NavLink to={`/graph/${selectedSensor?._id}`}>Graph</NavLink>
 
                             <button>Configure Sensor</button> {/* ToDo */}
                             <button>Delete Sensor</button>    {/* ToDo */}
@@ -100,7 +104,7 @@ const ListSensors = props => {
                 </div>
 
             </div>
-        </div>
+        </div >
     )
 }
 
