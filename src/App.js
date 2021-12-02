@@ -1,3 +1,12 @@
+/*
+Installed packages:
+
+npm install --save echarts-for-react
+npm install echarts-for-react
+
+*/
+
+
 import logo from "./logo.svg";
 import "./App.css";
 import react from "react";
@@ -10,18 +19,19 @@ import Footer from "./components/Footer";
 import Login from "./components/login";
 import UserManagement from "./components/UserManagement";
 import ListSensors from "./components/ListSensors";
+import Graph from "./components/Graph"
+import { useUserContext } from "./context/UserContext";
 
 function App() {
+  const { userData: loggedInUser } = useUserContext();
 
-
-
-
-
-
+  // console.log(loggedInUser);
 
   return (
     <div className="main">
+
       <Header />
+      Logged in user: {loggedInUser?.username}
 
       <Switch>
         <Route exact path="/">
@@ -43,6 +53,11 @@ function App() {
         <Route exact path="/listSensors">
           <ListSensors />
         </Route>
+
+        <Route exact path="/graph/:_id">
+          <Graph />
+        </Route>
+
       </Switch>
 
       <Footer />

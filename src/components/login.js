@@ -11,7 +11,7 @@ const Login = () => {
     password: "",
   });
 
-  const { setUserData } = useUserContext()
+  const { setUserData } = useUserContext();
 
   const { REACT_APP_BACKEND_URL } = process.env;
 
@@ -38,7 +38,7 @@ const Login = () => {
       })
       .then((data) => {
         setUserData(data);
-        history.push('/somewhere')
+        history.push('/listSensors')
       })
       .catch((err) => {
         console.log(err);

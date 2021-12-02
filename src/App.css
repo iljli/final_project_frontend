@@ -104,6 +104,13 @@ h5 {
   height: auto;
   padding-bottom: 2rem;
 }
+
 .login_button {
   margin-top: 2rem;
+}
+
+.graph-xy {
+  width: 80%;
+  /* width: 200px; */
+  margin: 50px;
 }
