@@ -1,10 +1,17 @@
 import { useEffect, useState } from "react";
+import { useUserContext } from "../context/UserContext";
+import { useHistory } from "react-router-dom";
 
 const Login = () => {
+
+  const history = useHistory()
+
   const [userInput, setUserInput] = useState({
     username: "",
     password: "",
   });
+
+  const { setUserData } = useUserContext()
 
   const { REACT_APP_BACKEND_URL } = process.env;
 
@@ -18,7 +25,10 @@ const Login = () => {
     }
     fetch(url, {
       method: "POST",
-      body: JSON.stringify(userInput),
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(userInput)
     })
       .then((res) => {
         if (res.ok) {
@@ -27,7 +37,8 @@ const Login = () => {
         throw new Error("ERROR");
       })
       .then((data) => {
-        console.log(data);
+        setUserData(data);
+        history.push('/somewhere')
       })
       .catch((err) => {
         console.log(err);

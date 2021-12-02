@@ -11,8 +11,14 @@ import Login from "./components/login";
 import UserManagement from "./components/UserManagement";
 import ListSensors from "./components/ListSensors";
 
-
 function App() {
+ 
+
+  
+
+
+
+
   return (
     <div className="main">
       <Header />
@@ -21,7 +27,7 @@ function App() {
         <Route exact path="/">
           <Landing />
         </Route>
-        
+
         <Route exact path="/login">
           <Login />
         </Route>
@@ -34,9 +40,9 @@ function App() {
           <Contacts />
         </Route>
 
-        <Route exact path="/listSensors">
+        {/* <Route exact path="/listSensors">
           <ListSensors />
-        </Route>
+        </Route> */}
       </Switch>
 
       <Footer />
