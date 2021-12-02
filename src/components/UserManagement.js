@@ -60,7 +60,7 @@ const UserManagement = props => {
     return (
         <div>
             <div class="row">
-                <form class="col s12" onSubmit={handleSubmit}>
+                <form class="col s6 right-align" onSubmit={handleSubmit}>
                     <div class="row">
                         <div class="input-field col s12">
                             <input id="username" type="text" class="validate"
