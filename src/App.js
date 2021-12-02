@@ -12,9 +12,9 @@ import UserManagement from "./components/UserManagement";
 import ListSensors from "./components/ListSensors";
 
 function App() {
- 
 
-  
+
+
 
 
 
@@ -40,9 +40,9 @@ function App() {
           <Contacts />
         </Route>
 
-        {/* <Route exact path="/listSensors">
+        <Route exact path="/listSensors">
           <ListSensors />
-        </Route> */}
+        </Route>
       </Switch>
 
       <Footer />
