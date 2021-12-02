@@ -91,8 +91,10 @@ const ListSensors = props => {
                             </p>
                         </div>
                         <div class="card-action">
-                            <a href="#">This is a link</a>
-                            <a href="#">This is a link</a>
+                            <a href="#">Graph</a>
+
+                            <button>Configure Sensor</button> {/* ToDo */}
+                            <button>Delete Sensor</button>    {/* ToDo */}
                         </div>
                     </div>
                 </div>
