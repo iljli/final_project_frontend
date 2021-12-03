@@ -17,13 +17,20 @@ const Graph = props => {
     const [rawMeasurements, setRawMeasurements] = useState();
     const [graphOptions, setGraphOptions] = useState();
     const [dateRange, setDateRange] = useState();
+    const [numberOfValuesGraph, setNumberOfValuesGraph] = useState(10);
 
     function extractMeasurements(objects) {
         objects.reverse();
-        console.log(objects);
+        // console.log(objects);
 
         const recorded_at = objects.map(val => {
-            return val.recorded_at;
+            let date_string = new Date(val.recorded_at * 1000);
+            let year = date_string.getFullYear();
+            let month = ("0" + (date_string.getMonth() + 1)).slice(-2);
+            let day = ("0" + date_string.getDate()).slice(-2);
+
+            const date = `${year}/${month}/${day}`
+            return (date);
         });
         const temperatures = objects.map(val => {
             return val.temperature;
@@ -36,8 +43,8 @@ const Graph = props => {
         });
 
 
-        console.log(recorded_at);
-        console.log(temperatures);
+        // console.log(recorded_at);
+        // console.log(temperatures);
 
         setGraphOptions(
             {
@@ -119,20 +126,22 @@ const Graph = props => {
             });
     }
 
-    const dateSelected = (e) => {
-        console.log("Action");
+    const dateSelected = (e) => {  // not used
+        console.log("dateSelected");
     }
 
     const drawDiagram = (e) => {
         getMeasurements();
-
     }
 
     const getValue = (e) => {
-        console.log(e);
+        // console.log(e);
         if (e.startDate && e.endDate) setDateRange(e);
     }
 
+    const handleResulution = (e) => {
+        setNumberOfValuesGraph(e.target.valueAsNumber);
+    }
 
     const errorHandler = (error) => {
         console.log(`Error Message: ${error.message}`); // does not actual handle the error
@@ -164,7 +173,7 @@ const Graph = props => {
     }
 
     const getMeasurements = async (event) => {
-        const apiUrl = `http://localhost:3000/measurements/slice/${_id}/${dateRange?.startDate}/${dateRange?.endDate}/10`; // ToDo: limit is fixed
+        const apiUrl = `http://localhost:3000/measurements/slice/${_id}/${dateRange?.startDate}/${dateRange?.endDate}/${numberOfValuesGraph}`;
 
         const options = {
             method: "GET",
@@ -199,6 +208,16 @@ const Graph = props => {
             </div>
             <div>
                 <DatePicker dateSelect={dateSelected} setDatarange={getValue} />
+            </div>
+            <div class="row">
+                <form class="col s6">
+                    <div class="row">
+                        <label>Number of values in graph {numberOfValuesGraph}</label>
+                        <p class="range-field">
+                            <input type="range" id="test" min="10" max="100" onChange={handleResulution} />
+                        </p>
+                    </div>
+                </form>
             </div>
             <button class="btn waves-effect waves-light" onClick={drawDiagram}>Get Graph</button>
         </>

@@ -55,7 +55,7 @@ const DatePicker = props => {
                 direction="horizontal"
                 preventSnapRefocus={true}
                 calendarFocus="backwards"
-            />;
+            />
         </div>
     )
 }
