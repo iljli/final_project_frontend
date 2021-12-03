@@ -11,15 +11,15 @@ import DatePicker from './DatePicker';
 
 */
 
-// ToDo: time-series must be reverted
 
 const Graph = props => {
     const { _id } = useParams();
     const [rawMeasurements, setRawMeasurements] = useState();
     const [graphOptions, setGraphOptions] = useState();
-
+    const [dateRange, setDateRange] = useState();
 
     function extractMeasurements(objects) {
+        objects.reverse();
         console.log(objects);
 
         const recorded_at = objects.map(val => {
@@ -78,8 +78,8 @@ const Graph = props => {
                     {
                         type: 'value',
                         scale: true,
-                        max: 30,
-                        min: 10,
+                        max: 50,
+                        min: -10,
                         name: 'Temperature °C',
                         // boundaryGap: [0.2, 0.2]
                     },
@@ -87,7 +87,7 @@ const Graph = props => {
                         type: 'value',
                         scale: true,
                         max: 100,
-                        min: 0,
+                        min: -100,
                         name: 'Humidity % rH',
                         // boundaryGap: [0.2, 0.2]
                     }
@@ -123,8 +123,14 @@ const Graph = props => {
         console.log("Action");
     }
 
+    const drawDiagram = (e) => {
+        getMeasurements();
+
+    }
+
     const getValue = (e) => {
         console.log(e);
+        if (e.startDate && e.endDate) setDateRange(e);
     }
 
 
@@ -133,8 +139,7 @@ const Graph = props => {
     };
 
 
-    const getMeasurements = async (event) => {
-
+    const getLastMeasurements = async (event) => {
         const apiUrl = `http://localhost:3000/measurements/sensor/${_id}/100`; // ToDo: limit is fixed
 
         const options = {
@@ -152,13 +157,39 @@ const Graph = props => {
                 return response.json();
             }, errorHandler)
             .then(value => {
-                console.log(value.measurementsData);
+                // console.log(value.measurementsData);
                 setRawMeasurements(value.measurementsData);
                 extractMeasurements(value.measurementsData);
             });
     }
 
-    useEffect(getMeasurements, []);
+    const getMeasurements = async (event) => {
+        const apiUrl = `http://localhost:3000/measurements/slice/${_id}/${dateRange?.startDate}/${dateRange?.endDate}/10`; // ToDo: limit is fixed
+
+        const options = {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                credentials: "include"
+            },
+        };
+
+        fetch(apiUrl, options)
+            .then((response) => {
+                if (!response.ok)
+                    throw new Error(`An error has occured during the request. HTTP status code: ${response.status}`)
+                return response.json();
+            }, errorHandler)
+            .then(value => {
+                // console.log(value.measurementsData);
+                setRawMeasurements(value.measurementsData);
+                extractMeasurements(value.measurementsData);
+            });
+    }
+
+
+
+    useEffect(getLastMeasurements, []);
 
     return (
         <>
@@ -169,6 +200,7 @@ const Graph = props => {
             <div>
                 <DatePicker dateSelect={dateSelected} setDatarange={getValue} />
             </div>
+            <button class="btn waves-effect waves-light" onClick={drawDiagram}>Get Graph</button>
         </>
     )
 }
