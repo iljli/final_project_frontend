@@ -2,7 +2,14 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import ReactECharts from 'echarts-for-react';
+import DatePicker from './DatePicker';
 
+/*
+    installed packages:
+    npm install --save react date-fns
+    npm install --save react-date-range
+
+*/
 
 // ToDo: time-series must be reverted
 
@@ -41,7 +48,7 @@ const Graph = props => {
                     trigger: 'axis'
                 },
                 legend: {
-                    data: ['Temperature', 'Humidity']
+                    data: ['Temperature °C', 'Humidity % rH']
                 },
                 toolbox: {
                     feature: {
@@ -50,8 +57,8 @@ const Graph = props => {
                 },
                 grid: {
                     top: 30,
-                    left: 40,
-                    right: 60,
+                    left: 50,
+                    right: 70,
                     bottom: 30
                 },
                 xAxis:
@@ -73,7 +80,7 @@ const Graph = props => {
                         scale: true,
                         max: 30,
                         min: 10,
-                        name: 'Temperature',
+                        name: 'Temperature °C',
                         // boundaryGap: [0.2, 0.2]
                     },
                     {
@@ -81,13 +88,13 @@ const Graph = props => {
                         scale: true,
                         max: 100,
                         min: 0,
-                        name: 'Humidity',
+                        name: 'Humidity % rH',
                         // boundaryGap: [0.2, 0.2]
                     }
                 ],
                 series: [
                     {
-                        name: 'Temperature',
+                        name: 'Temperature °C',
                         // data: [820, 932, 901, 934, 1290, 1330, 1320],
                         data: temperatures,
                         type: 'line',
@@ -97,7 +104,7 @@ const Graph = props => {
 
                     },
                     {
-                        name: 'Humidity',
+                        name: 'Humidity % rH',
                         // data: [820, 932, 901, 934, 1290, 1330, 1320],
                         data: humidity,
                         type: 'bar',
@@ -112,6 +119,13 @@ const Graph = props => {
             });
     }
 
+    const dateSelected = (e) => {
+        console.log("Action");
+    }
+
+    const getValue = (e) => {
+        console.log(e);
+    }
 
 
     const errorHandler = (error) => {
@@ -121,7 +135,7 @@ const Graph = props => {
 
     const getMeasurements = async (event) => {
 
-        const apiUrl = `http://localhost:3000/measurements/sensor/${_id}/1000`; // ToDo: limit is fixed
+        const apiUrl = `http://localhost:3000/measurements/sensor/${_id}/100`; // ToDo: limit is fixed
 
         const options = {
             method: "GET",
@@ -147,10 +161,15 @@ const Graph = props => {
     useEffect(getMeasurements, []);
 
     return (
-        <div class="graph-xy">
-            Sensor id: {_id}
-            {graphOptions && <ReactECharts option={graphOptions} />}
-        </div>
+        <>
+            <div class="graph-xy">
+                Sensor id: {_id}
+                {graphOptions && <ReactECharts option={graphOptions} />}
+            </div>
+            <div>
+                <DatePicker dateSelect={dateSelected} setDatarange={getValue} />
+            </div>
+        </>
     )
 }
 

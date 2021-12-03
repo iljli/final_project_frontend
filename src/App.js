@@ -22,6 +22,7 @@ import ListSensors from "./components/ListSensors";
 import Graph from "./components/Graph"
 import { useUserContext } from "./context/UserContext";
 
+
 function App() {
   const { userData: loggedInUser } = useUserContext();
 
