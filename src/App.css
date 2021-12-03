@@ -107,3 +107,9 @@ h5 {
 .login_button {
   margin-top: 2rem;
 }
+
+.logo {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+}

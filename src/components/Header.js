@@ -12,7 +12,11 @@ const Header = () => {
     <nav>
       <div className="nav-wrapper  light-blue darken-3">
         <a href="#" class="brand-logo">
-          LOGO
+        {/* <img
+        className="logo"
+        src="https://i.pinimg.com/564x/e9/b5/7d/e9b57dae6ea6e3cd3cdf761c774bff7c.jpg"
+      /> */}
+     
         </a>
         <ul id="nav-mobile" className="right hide-on-med-and-down">
           <li>

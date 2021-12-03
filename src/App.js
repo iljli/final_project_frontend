@@ -12,16 +12,10 @@ import UserManagement from "./components/UserManagement";
 import ListSensors from "./components/ListSensors";
 
 function App() {
- 
-
-  
-
-
-
-
   return (
     <div className="main">
       <Header />
+    
 
       <Switch>
         <Route exact path="/">
