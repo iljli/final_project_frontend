@@ -140,7 +140,11 @@ const Graph = props => {
     }
 
     const handleResulution = (e) => {
-        setNumberOfValuesGraph(e.target.valueAsNumber);
+        if (!e.target.value) {
+            return setNumberOfValuesGraph(10);
+        }
+        console.log(e.target.value);
+        setNumberOfValuesGraph(Number(e.target.value));
     }
 
     const errorHandler = (error) => {
@@ -209,18 +213,20 @@ const Graph = props => {
             <div>
                 <DatePicker dateSelect={dateSelected} setDatarange={getValue} />
             </div>
+
             <div class="row">
-                <form class="col s6">
-                    <div class="row">
-                        <label>Number of values in graph {numberOfValuesGraph}</label>
-                        <p class="range-field">
-                            <input type="range" id="test" min="10" max="100" onChange={handleResulution} />
-                        </p>
-                    </div>
-                </form>
+                <div class="input-field col s4">
+                    <select class="browser-default" onChange={handleResulution}>
+                        <option value="10" disabled selected>Number of Values in Graph</option>
+                        <option value="10">10</option>
+                        <option value="25">25</option>
+                        <option value="50">50</option>
+                        <option value="250">250</option>
+                    </select>
+                </div>
+                <button class="btn waves-effect waves-light col s4" onClick={drawDiagram}>Get Graph</button>
             </div>
-            <button class="btn waves-effect waves-light" onClick={drawDiagram}>Get Graph</button>
-        </>
+        </ >
     )
 }
 
