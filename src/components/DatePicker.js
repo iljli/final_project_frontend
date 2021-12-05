@@ -51,10 +51,12 @@ const DatePicker = props => {
                 showSelectionPreview={true}
                 moveRangeOnFirstSelection={false}
                 months={2}
+                weekStartsOn={1}
                 ranges={state}
                 direction="horizontal"
                 preventSnapRefocus={true}
                 calendarFocus="backwards"
+                maxDate={addDays(new Date(), 0)} // only select 0 next days 
             />
         </div>
     )

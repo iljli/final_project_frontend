@@ -26,7 +26,7 @@ const userTemplate = {
 
 const ListSensors = props => {
     const { userData: loggedInUser } = useUserContext();
-    const [userData, setUserData] = useState(loggedInUser); // ToDo: prepared for global variable that contains the username
+    const [userData, setUserData] = useState(loggedInUser);
     const [listOfSensors, setListOfSensors] = useState();
     const [selectedSensor, setSelectedSensor] = useState();
 
@@ -98,6 +98,7 @@ const ListSensors = props => {
                             <NavLink to={`/graph/${selectedSensor?._id}`}>Graph</NavLink>
 
                             <button>Configure Sensor</button> {/* ToDo */}
+                            <NavLink to={`/createSensor`}>Create new Sensor</NavLink>
                             <button>Delete Sensor</button>    {/* ToDo */}
                         </div>
                     </div>
