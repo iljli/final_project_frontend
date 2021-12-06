@@ -3,6 +3,7 @@ Installed packages:
 
 npm install --save echarts-for-react
 npm install echarts-for-react
+npm install --save react-date-range
 
 */
 
