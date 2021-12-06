@@ -4,6 +4,7 @@ Installed packages:
 npm install --save echarts-for-react
 npm install echarts-for-react
 npm install --save react-date-range
+npm install nanoid
 
 */
 
@@ -67,7 +68,7 @@ function App() {
         <Route exact path="/createSensor">
           <CreateSensor />
         </Route>
-        
+
         <Route exact path="/UpdateUser">
           <Update_user />
         </Route>

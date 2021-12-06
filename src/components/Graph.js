@@ -8,15 +8,20 @@ import DatePicker from './DatePicker';
     installed packages:
     npm install --save react date-fns
     npm install --save react-date-range
-
 */
 
+const FIVE_MINUTES = 300;
 
 const Graph = props => {
+
     const { _id } = useParams();
     const [rawMeasurements, setRawMeasurements] = useState();
     const [graphOptions, setGraphOptions] = useState();
-    const [dateRange, setDateRange] = useState();
+    const [dateRange, setDateRange] = useState(
+        {
+            startDate: Math.floor(Date.now() / 1000) - FIVE_MINUTES,
+            endDate: Math.floor(Date.now() / 1000) - FIVE_MINUTES,
+        });
     const [numberOfValuesGraph, setNumberOfValuesGraph] = useState(10);
 
     function extractMeasurements(objects) {
@@ -85,8 +90,8 @@ const Graph = props => {
                     {
                         type: 'value',
                         scale: true,
-                        max: 50,
-                        min: -10,
+                        max: 40,
+                        min: 0,
                         name: 'Temperature °C',
                         // boundaryGap: [0.2, 0.2]
                     },
@@ -94,7 +99,7 @@ const Graph = props => {
                         type: 'value',
                         scale: true,
                         max: 100,
-                        min: -100,
+                        min: 0,
                         name: 'Humidity % rH',
                         // boundaryGap: [0.2, 0.2]
                     }
@@ -127,7 +132,7 @@ const Graph = props => {
     }
 
     const dateSelected = (e) => {  // not used
-        console.log("dateSelected");
+        // console.log("dateSelected");
     }
 
     const drawDiagram = (e) => {
@@ -143,7 +148,7 @@ const Graph = props => {
         if (!e.target.value) {
             return setNumberOfValuesGraph(10);
         }
-        console.log(e.target.value);
+        // console.log(e.target.value);
         setNumberOfValuesGraph(Number(e.target.value));
     }
 

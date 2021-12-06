@@ -36,8 +36,8 @@ const DatePicker = props => {
             startDate: Date.parse(ranges[0].startDate) / 1000, // convert date to epoch in seconds
             endDate: Date.parse(ranges[0].endDate) / 1000 // convert date to epoch in seconds
         }
-        console.log(`startDate: ${dataselect.startDate}`);
-        console.log(`endDate: ${dataselect.endDate}`);
+        // console.log(`startDate: ${dataselect.startDate}`);
+        // console.log(`endDate: ${dataselect.endDate}`);
         props.dateSelect();
         props.setDatarange(dataselect);
     }

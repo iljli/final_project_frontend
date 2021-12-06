@@ -31,7 +31,7 @@ const UserManagement = props => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        console.log(userData);
+        // console.log(userData);
 
         const { REACT_APP_BACKEND_URL } = process.env;
         const apiUrl = `${REACT_APP_BACKEND_URL}/users/create_user`;

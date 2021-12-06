@@ -88,7 +88,7 @@ const CreateSensor = props => {
                                 onChange={handleInputChange}
                                 name="sensorname"
                                 value={sensorData?.sensorname}
-                                required="true"
+                                required={true}
                             />
                             <label for="sensorname">Sensorname</label>
                         </div>
