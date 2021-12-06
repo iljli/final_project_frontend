@@ -179,7 +179,8 @@ const Graph = props => {
     }
 
     const getMeasurements = async (event) => {
-        const apiUrl = `http://localhost:3000/measurements/slice/${_id}/${dateRange?.startDate}/${dateRange?.endDate}/${numberOfValuesGraph}`;
+        const { REACT_APP_BACKEND_URL } = process.env;
+        const apiUrl = `${REACT_APP_BACKEND_URL}/measurements/slice/${_id}/${dateRange?.startDate}/${dateRange?.endDate}/${numberOfValuesGraph}`;
 
         const options = {
             method: "GET",
