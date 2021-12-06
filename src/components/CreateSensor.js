@@ -10,53 +10,43 @@ import { useUserContext } from "../context/UserContext";
 let sensorId = "asdf"; // ToDo: find a soulution for that process
 
 //*************************************************************
-function notification(notification) {
-    M.toast({ html: 'New sensor created', classes: 'rounded' })
 
-
-    alert({
-        title: "This is the new sensor's ID:",
-        message: notification
-    });
-
-
-}
 
 
 //*************************************************************
-function postToBackend(sensorData) {
-    const apiUrl = "http://localhost:3000/sensordata/create_sensor";
 
-    const options = {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-            credentials: "include"
-        },
-        body: JSON.stringify(sensorData)
-    };
-
-    // fetch(apiUrl, options)
-    //     .then((res) => {
-    //         if (!res.ok) throw new Error("Could not create post");
-    //         console.log(res.json());
-    //         // console.log(res);
-    //         // notification("Here I want the res._id to be passed");
-    //         return res;
-    //     })
-    //     .catch((err) => console.log(err));
-    fetch(apiUrl, options)
-        .then((res => res.json()))
-        .then(data => console.log(data._id))
-        .catch((err) => console.log(err));
-}
 
 
 //*************************************************************
 const CreateSensor = props => {
     const [sensorData, setSensorData] = useState();
     const { userData: loggedInUser } = useUserContext();
+    const [newSensorId, setNewSensorId] = useState();
 
+    function notification(sensorId) {
+        M.toast({ html: 'New sensor created', classes: 'rounded' })
+
+        console.log(`New Sensor ID:${sensorId}`);
+        setNewSensorId(sensorId);
+    }
+
+    function postToBackend(sensorData) {
+        const apiUrl = "http://localhost:3000/sensordata/create_sensor";
+
+        const options = {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                credentials: "include"
+            },
+            body: JSON.stringify(sensorData)
+        };
+
+        fetch(apiUrl, options)
+            .then((res => res.json()))
+            .then(data => notification(data._id))
+            .catch((err) => console.log(err));
+    }
 
     const handleInputChange = (event) => {
         setSensorData({ ...sensorData, [event.target.name]: event.target.value });
@@ -174,7 +164,7 @@ const CreateSensor = props => {
                     </button>
                 </form>
             </div>
-            {/* {sensorId && sensorId} */}
+            Sensor Id of new sensor: {newSensorId && newSensorId}
         </div>
     )
 }
