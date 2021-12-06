@@ -3,6 +3,7 @@ Installed packages:
 
 npm install --save echarts-for-react
 npm install echarts-for-react
+npm install --save react-date-range
 
 */
 
@@ -22,6 +23,7 @@ import ListSensors from "./components/ListSensors";
 import Graph from "./components/Graph"
 import CreateSensor from "./components/CreateSensor"
 import { useUserContext } from "./context/UserContext";
+import Update_user from "./components/UpdateUser";
 
 
 function App() {
@@ -64,6 +66,10 @@ function App() {
 
         <Route exact path="/createSensor">
           <CreateSensor />
+        </Route>
+        
+        <Route exact path="/UpdateUser">
+          <Update_user />
         </Route>
 
       </Switch>

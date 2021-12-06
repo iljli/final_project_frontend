@@ -28,6 +28,9 @@ const Header = () => {
             <Link to="/contacts">Contact Us</Link>
           </li>
           <li>
+            <Link to="/UpdateUser">Update User Data</Link>
+          </li>
+          <li>
             {!userData ? (
               <Link to="/login">Login</Link>
             ) : (

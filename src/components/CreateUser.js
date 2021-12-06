@@ -33,7 +33,8 @@ const UserManagement = props => {
         event.preventDefault();
         console.log(userData);
 
-        const apiUrl = "https://moisturizemebackend.herokuapp.com/users/create_user";
+        const { REACT_APP_BACKEND_URL } = process.env;
+        const apiUrl = `${REACT_APP_BACKEND_URL}/users/create_user`;
 
         const options = {
             method: "POST",
