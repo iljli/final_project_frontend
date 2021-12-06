@@ -37,7 +37,8 @@ const ListSensors = props => {
 
     const getListOfSensors = (event) => {
 
-        const apiUrl = "http://localhost:3000/users/list_userdata/";
+        const { REACT_APP_BACKEND_URL } = process.env;
+        const apiUrl = `${REACT_APP_BACKEND_URL}/users/list_userdata/`;
 
         const options = {
             method: "POST",

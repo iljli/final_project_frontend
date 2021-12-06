@@ -22,7 +22,9 @@ const CreateSensor = props => {
     }
 
     function postToBackend(sensorData) {
-        const apiUrl = "http://localhost:3000/sensordata/create_sensor";
+        const { REACT_APP_BACKEND_URL } = process.env;
+
+        const apiUrl = `${REACT_APP_BACKEND_URL}/sensordata/create_sensor`;
 
         const options = {
             method: "POST",
