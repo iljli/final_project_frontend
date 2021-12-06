@@ -7,15 +7,6 @@ import { useUserContext } from "../context/UserContext";
     - check if sensor already exists (but: id is unique)
 */
 
-let sensorId = "asdf"; // ToDo: find a soulution for that process
-
-//*************************************************************
-
-
-
-//*************************************************************
-
-
 
 //*************************************************************
 const CreateSensor = props => {
