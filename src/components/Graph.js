@@ -224,8 +224,8 @@ const Graph = props => {
 
             <div class="row">
                 <div class="input-field col s4">
-                    <select class="browser-default" onChange={handleResulution}>
-                        <option value="10" disabled selected>Number of Values in Graph</option>
+                    <select class="browser-default" defaultValue="" onChange={handleResulution}>
+                        <option value="10" disabled>Number of Values in Graph</option>
                         <option value="10">10</option>
                         <option value="25">25</option>
                         <option value="50">50</option>

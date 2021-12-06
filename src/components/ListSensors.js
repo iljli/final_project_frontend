@@ -80,7 +80,7 @@ const ListSensors = (props) => {
                         listOfSensors.map((sensor, index) => (
                             <a
                                 href="#!"
-                                class="collection-item"
+                                className="collection-item"
                                 key={nanoid()}
                                 onClick={() => handleSelectSensor({ sensor })}
                             >
