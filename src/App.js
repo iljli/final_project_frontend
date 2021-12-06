@@ -34,6 +34,8 @@ function App() {
 
       <Header />
       Logged in user: {loggedInUser?.username}
+      <br />
+      Logged in user: {loggedInUser?._id}
 
       <Switch>
         <Route exact path="/">
