@@ -69,16 +69,16 @@ const ListSensors = (props) => {
   useEffect(getListOfSensors, [selectedSensor, loggedInUser]);
 
   return (
-    
-      <div class="row" className="container4">
-      <h4>Your Sensors</h4>
-        <div class="collection with-header  col s6">
-       
+    <div className="container4">
+      <div className=" row">
+        <h4>Your Sensors</h4>
+        <div class="collection with-header  col s4">
           {listOfSensors &&
             listOfSensors.map((sensor, index) => (
               <a
+            
                 href="#!"
-                class="collection-item"
+                className=" link_1 collection-item"
                 key={index}
                 onClick={() => handleSelectSensor({ sensor })}
               >
@@ -90,7 +90,7 @@ const ListSensors = (props) => {
         {/* ToDo: intervall not sure */}
 
         <div class="col s6 m6">
-          <div class="my_card card ">
+          <div class="card #00bcd4 cyan">
             <div class="card-content white-text">
               <span class="card-title">
                 {selectedSensor && selectedSensor?.name}
@@ -122,16 +122,28 @@ const ListSensors = (props) => {
                   ))}
               </p>
             </div>
-            <div class="card-action">
-              <NavLink to={`/graph/${selectedSensor?._id}`}>Graph</NavLink>
-              <button>Configure Sensor</button> {/* ToDo */}
-              <NavLink to={`/createSensor`}>Create new Sensor</NavLink>
-              <button>Delete Sensor</button> {/* ToDo */}
+            <div className=" container5 card-action">
+              <NavLink to={`/graph/${selectedSensor?._id}`}>
+                <a class="waves-effect waves-light btn-small">Graph</a>
+              </NavLink>
+
+              <a class="waves-effect waves-light btn-small">
+                Configure a sensor
+              </a>
+              {/* ToDo */}
+              <NavLink to={`/createSensor`}>
+                <a class="waves-effect waves-light btn-small">
+                  Create new Sensor
+                </a>
+              </NavLink>
+
+              <a class="waves-effect waves-light btn-small">Delete a Sensor</a>
+              {/* ToDo */}
             </div>
           </div>
         </div>
       </div>
- 
+    </div>
   );
 };
 

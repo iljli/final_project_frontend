@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useUserContext } from "../context/UserContext";
 import { useHistory } from "react-router-dom";
+import outline1 from "../pictures/outline1.png"
 
 const Login = () => {
 
@@ -52,12 +53,11 @@ const Login = () => {
   // console.log(userInput);
 
   return (
-    <div class="row ">
-      <div class="col s12 login_container">
-        <img
-          class="responsive-img circle login_avatar"
-          src="https://www.nareb.com/site-files/uploads/2017/03/fg-avatar-anonymous-user-retina.png"
-        />
+    <div className=" container9 row " >
+      <div className="container10 col s12 login_container">
+      
+        <div className="con1">
+          <h3 className="info1"> Login into your account : </h3>
         <form>
           <label for="username">Username:</label>
           <input
@@ -76,14 +76,16 @@ const Login = () => {
             value={userInput.password}
           />
         </form>
+        </div>
         <button
-          class="btn waves-effect waves-light login_button"
+          class="my_button2 #fdd835 yellow darken-1 btn waves-effect waves-light login_button pulse  "
           type="submit"
           onClick={login}
         >
           Submit
-          <i class="material-icons right">vpn_key</i>
+          <i class="material-icons right ">vpn_key</i>
         </button>
+        <img className="outline1" src=  {outline1}/>
       </div>
     </div>
   );

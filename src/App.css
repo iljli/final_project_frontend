@@ -227,22 +227,131 @@ CONTACTS */
 .input-field label {
   color: #000;
   font-family: "Montserrat", sans-serif;
-  font-weight: ;
+  font-weight: bold;
 }
 .input-field input[type="text"]:focus + label {
   color: #000;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
 }
 
 .input-field input[type="text"]:focus {
   border-bottom: 1px solid #000;
   box-shadow: 0 1px 0 0 #000;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
 }
 
 .input-field input[type="text"].valid {
   border-bottom: 1px solid #000;
   box-shadow: 0 1px 0 0 #000;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
 }
-
 
 /* LIST OF SENSORS */
 
+.container4 {
+  background-color: #f4f4f4;
+  height: 655px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.link_1 {
+  color: black;
+}
+
+.container5 {
+  background-color: crimson;
+}
+
+/* UPDATE USER */
+
+.container6 {
+  background-color: #f4f4f4;
+  height: 655px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.container7 {
+  width: 660px;
+  position: absolute;
+  right: 100px;
+}
+
+.container7:hover {
+  background-image: url("https://media1.giphy.com/media/mIRoTngzrIqCT3bJQR/giphy.gif");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.my_button1 {
+  color: white;
+}
+
+.man {
+  height: 550px;
+  position: absolute;
+  left: 10px;
+  background-color: #24bddf;
+}
+
+/* LOGIN PAGE */
+
+.container9 {
+  height: 645px;
+}
+
+.container10 {
+  height: 645px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: url("https://cdn.dribbble.com/users/2120934/screenshots/6193524/19_mostlysunny.gif");
+
+  background-repeat: no-repeat;
+  background-position: right;
+}
+
+.con1 {
+  align-self: flex-start;
+  margin-left: 20px;
+}
+
+label {
+  color: black;
+  font-family: "Corinthia", cursive;
+  font-size: 2rem;
+}
+
+.outline1 {
+  position: absolute;
+  height: 450px;
+  right: 10px;
+  bottom: 0px;
+}
+
+.img-1 {
+  position: absolute;
+  border: 3px black;
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+}
+
+.my_button2 {
+  position: absolute;
+  left: 230px;
+  bottom: 100px;
+  color: black;
+}
+
+.info1 {
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  text-shadow: 2px 2px #fdd835;
+}

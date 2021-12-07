@@ -1,6 +1,7 @@
  import {useState, React, useEffect} from 'react';
  import { useUserContext } from "../context/UserContext";
 import M from "materialize-css";
+import man from "../pictures/700.png"
 
 
 const Update_user = () => {
@@ -35,11 +36,12 @@ console.log(loggedInUser);
   }, [])
   
   return (
-    <div>
-      <div class="row">
+    <div className="container6">
+      <img className="man"src={man}/>
+      <div class="row" className="container7">
         <form class="col s6 right-align" onSubmit={handleSubmit}>
           <div class="row">
-            <div class="input-field col s12">
+            <div class=" input-field col s12">
               <input
                 id="username"
                 type="text"
@@ -99,14 +101,20 @@ console.log(loggedInUser);
               <label >Email</label>
             </div>
           </div>
-          <button
+          {/* <button
             class="btn waves-effect waves-light"
             type="submit"
             name="action"
+            pulse
           >
             UPDATE USER
             <i class="material-icons right">send</i>
-          </button>
+          </button> */}
+          
+
+          <button className=" my_button1 btn waves-effect waves-light pulse #26c6da cyan lighten-1" type="submit" name="action">Submit
+    <i class="material-icons right">send</i>
+  </button>
   
         </form>
       </div>
