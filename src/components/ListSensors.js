@@ -116,7 +116,7 @@ const ListSensors = (props) => {
                                 Alarms:
                                 {selectedSensor &&
                                     selectedSensor.config?.alarms.map((alarm, index) => (
-                                        <p>
+                                        <p key={nanoid()}>
                                             {" "}
                                             Treshold {index + 1}: {alarm?.operator}
                                             {alarm?.treshold} {alarm?.measurement_type}{" "}
