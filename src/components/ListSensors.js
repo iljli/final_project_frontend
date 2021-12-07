@@ -70,18 +70,17 @@ const ListSensors = (props) => {
     useEffect(getListOfSensors, [selectedSensor, loggedInUser]);
 
     return (
-        <div>
-            <div class="row">
-                <div class="collection with-header  col s6">
-                    <li class="collection-header">
-                        <h4>Your Sensors</h4>
-                    </li>
+        <div className="container4">
+            <div className=" row">
+                <h4>Your Sensors</h4>
+                <div class="collection with-header  col s4">
                     {listOfSensors &&
                         listOfSensors.map((sensor, index) => (
                             <a
+
                                 href="#!"
-                                className="collection-item"
-                                key={nanoid()}
+                                className=" link_1 collection-item"
+                                key={index}
                                 onClick={() => handleSelectSensor({ sensor })}
                             >
                                 {sensor?.name} - {sensor.location?.loc_name}
@@ -92,13 +91,13 @@ const ListSensors = (props) => {
                 {/* ToDo: intervall not sure */}
 
                 <div class="col s6 m6">
-                    <div class="card blue-grey darken-1">
+                    <div class="card #00bcd4 cyan">
                         <div class="card-content white-text">
                             <span class="card-title">
                                 {selectedSensor && selectedSensor?.name}
                             </span>
                             <p>
-                                Location: {selectedSensor ? selectedSensor.location?.loc_name : "No Sensor selected"}
+                                Location: {selectedSensor && selectedSensor.location?.loc_name}
                             </p>
                             <p>
                                 Latitude: {selectedSensor && selectedSensor.location?.loc_lat}{" "}
@@ -116,7 +115,7 @@ const ListSensors = (props) => {
                                 Alarms:
                                 {selectedSensor &&
                                     selectedSensor.config?.alarms.map((alarm, index) => (
-                                        <p key={nanoid()}>
+                                        <p>
                                             {" "}
                                             Treshold {index + 1}: {alarm?.operator}
                                             {alarm?.treshold} {alarm?.measurement_type}{" "}
@@ -124,12 +123,23 @@ const ListSensors = (props) => {
                                     ))}
                             </p>
                         </div>
-                        <div class="card-action">
+                        <div className=" container5 card-action">
+                            <NavLink to={`/graph/${selectedSensor?._id}`}>
+                                <a class="waves-effect waves-light btn-small">Graph</a>
+                            </NavLink>
 
-                            <NavLink class={selectedSensor ? "" : "isDisabled"} to={`/graph/${selectedSensor?._id}`}>Graph</NavLink>
-                            <button class={selectedSensor ? "" : "isDisabled"}>Configure Sensor</button> {/* ToDo */}
-                            <NavLink to={`/createSensor`}>Create new Sensor</NavLink>
-                            <button class={selectedSensor ? "" : "isDisabled"}>Delete Sensor</button> {/* ToDo */}
+                            <a class="waves-effect waves-light btn-small">
+                                Configure a sensor
+                            </a>
+                            {/* ToDo */}
+                            <NavLink to={`/createSensor`}>
+                                <a class="waves-effect waves-light btn-small">
+                                    Create new Sensor
+                                </a>
+                            </NavLink>
+
+                            <a class="waves-effect waves-light btn-small">Delete a Sensor</a>
+                            {/* ToDo */}
                         </div>
                     </div>
                 </div>

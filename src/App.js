@@ -36,9 +36,9 @@ function App() {
     <div className="main">
 
       <Header />
-      Logged in user: {loggedInUser?.username}
+      {/* Logged in user: {loggedInUser?.username}
       <br />
-      Logged in user: {loggedInUser?._id}
+      Logged in user: {loggedInUser?._id} */}
 
       <Switch>
         <Route exact path="/">
