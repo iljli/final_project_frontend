@@ -69,12 +69,11 @@ const ListSensors = (props) => {
   useEffect(getListOfSensors, [selectedSensor, loggedInUser]);
 
   return (
-    <div>
-      <div class="row">
+    
+      <div class="row" className="container4">
+      <h4>Your Sensors</h4>
         <div class="collection with-header  col s6">
-          <li class="collection-header">
-            <h4>Your Sensors</h4>
-          </li>
+       
           {listOfSensors &&
             listOfSensors.map((sensor, index) => (
               <a
@@ -91,7 +90,7 @@ const ListSensors = (props) => {
         {/* ToDo: intervall not sure */}
 
         <div class="col s6 m6">
-          <div class="card blue-grey darken-1">
+          <div class="my_card card ">
             <div class="card-content white-text">
               <span class="card-title">
                 {selectedSensor && selectedSensor?.name}
@@ -132,7 +131,7 @@ const ListSensors = (props) => {
           </div>
         </div>
       </div>
-    </div>
+ 
   );
 };
 

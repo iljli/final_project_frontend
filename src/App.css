@@ -118,3 +118,131 @@ h5 {
 /* .range-field {
   width: 50%;
 } */
+
+/*About us styling  */
+
+.container1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo {
+  height: 350px;
+}
+
+.landing {
+  font-family: "Corinthia", cursive;
+}
+
+.landing1 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: bolder;
+  font-size: 1.5rem;
+}
+.colored {
+  background-color: #fffdbb;
+}
+/* 
+Nav bar  */
+
+.nav_bar {
+  background-color: #24bddf;
+}
+
+.logo1 {
+  height: 80px;
+}
+
+/* FOOTER  */
+
+.footer_1 {
+  background-color: #24bddf;
+
+  height: 150px;
+  display: flex;
+  justify-content: center;
+}
+/* 
+CONTACTS */
+.names {
+  height: 540px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #f4f4f4;
+}
+
+.info {
+  font-family: "Corinthia", cursive;
+}
+
+.name {
+  font-family: "Montserrat", sans-serif;
+  font-weight: bolder;
+  font-size: 25px;
+  background-color: #fffdbb;
+}
+
+.link1 {
+  margin-bottom: 25px;
+}
+
+/* CREATE USER */
+
+.outline {
+  height: 600px;
+  align-self: center;
+}
+.grass {
+  height: 390px;
+  position: absolute;
+  left: 100px;
+  bottom: 200px;
+}
+
+.container_1 {
+  background-color: #f4f4f4;
+  height: 655px;
+  margin: 0auto;
+  display: flex;
+}
+
+.container_2 {
+  background-color: #f4f4f4;
+  height: 655px;
+  display: flex;
+  width: 900px;
+  justify-content: center;
+  align-items: center;
+}
+
+.my_button {
+  background-color: #24bddf;
+  color: black;
+}
+
+.input-field label {
+  color: #000;
+  font-family: "Montserrat", sans-serif;
+  font-weight: ;
+}
+.input-field input[type="text"]:focus + label {
+  color: #000;
+}
+
+.input-field input[type="text"]:focus {
+  border-bottom: 1px solid #000;
+  box-shadow: 0 1px 0 0 #000;
+}
+
+.input-field input[type="text"].valid {
+  border-bottom: 1px solid #000;
+  box-shadow: 0 1px 0 0 #000;
+}
+
+
+/* LIST OF SENSORS */
+

@@ -1,49 +1,38 @@
+import logo1 from "../pictures/logo1.png"
+
 const Footer = () => {
  return (
      
-    <footer className="page-footer light-blue darken-3">
+    <footer className="page-footer footer_1">
     <div className="container">
       <div className="row">
+        <img className="logo1"src={logo1} />
         <div className="col l0 s5">
-          <h5 className="white-text">Footer Content</h5>
+          <h5 className="white-text">  © Moisturize me  ©</h5>
+          
           <p className="grey-text text-lighten-4">
-            You can use rows and columns here to organize your footer
-            content.
+          2021
           </p>
         </div>
         <div className="col l4 offset-l2 s12">
           <h5 className="white-text">Links</h5>
           <ul>
             <li>
-              <a className="grey-text text-lighten-3" href="#!">
-                Link 1
+              <a className="grey-text text-lighten-3" href="/contacts">
+           Contacts
               </a>
             </li>
             <li>
-              <a className="grey-text text-lighten-3" href="#!">
-                Link 2
+              <a className="grey-text text-lighten-3" href="/">
+         About us
               </a>
             </li>
-            <li>
-              <a className="grey-text text-lighten-3" href="#!">
-                Link 3
-              </a>
-            </li>
-            <li>
-              <a className="grey-text text-lighten-3" href="#!">
-                Link 4
-              </a>
-            </li>
+          
           </ul>
         </div>
       </div>
     </div>
-    <div className="footer-copyright">
-      <div className="container">
-  
-       
-      </div>
-    </div>
+   
   </footer>
  )
 

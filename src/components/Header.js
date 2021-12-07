@@ -1,5 +1,6 @@
 import { Switch, Route, Link, NavLink } from "react-router-dom";
 import { useUserContext } from "../context/UserContext";
+import logo1 from "../pictures/logo1.png"
 
 const Header = () => {
   const { userData, setUserData } = useUserContext();
@@ -10,25 +11,19 @@ const Header = () => {
 
   return (
     <nav>
-      <div className="nav-wrapper  light-blue darken-3">
-        <a href="#" class="brand-logo">
-          LOGO
-        </a>
+      <div className=" nav_bar nav-wrapper   ">
+        <img className="logo1"src={logo1} />
         <ul id="nav-mobile" className="right hide-on-med-and-down">
+         
           <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/userManagement">User Management</Link>
+            <Link to="/userManagement">Create Profile</Link>
           </li>
           <li>
             <Link to="/listSensors">My Sensors</Link>
           </li>
+         
           <li>
-            <Link to="/contacts">Contact Us</Link>
-          </li>
-          <li>
-            <Link to="/UpdateUser">Update User Data</Link>
+            <Link to="/UpdateUser">Edit User Profile</Link>
           </li>
           <li>
             {!userData ? (
